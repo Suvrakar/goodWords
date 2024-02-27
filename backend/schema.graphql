@@ -1,0 +1,37 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  posts: [Post]
+}
+
+type Category {
+  id: ID!
+  name: String!
+  posts: [Post]
+}
+
+type Post {
+  id: ID!
+  title: String!
+  content: String!
+  createdAt: String!
+  updatedAt: String!
+  user: User!
+  category: Category!
+}
+
+type Query {
+  hello: String!
+  getUser(id: ID!): User
+  getAllUsers: [User]
+  getPost(id: ID!): Post
+  getAllPosts: [Post]
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User
+  createPost(title: String!, content: String!, userId: ID!, categoryId: ID!): Post
+  editPost(id: ID!, title: String, content: String): Post
+  deletePost(id: ID!): Post
+}
